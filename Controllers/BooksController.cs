@@ -1,4 +1,5 @@
 ﻿// Controllers/BooksController.cs
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using TheLibraryApi.DTOs;
 
@@ -14,6 +15,7 @@ public class BooksController : ControllerBase
     }
 
     [HttpGet]
+    [Authorize]
     public async Task<IActionResult> GetAllBooks()
     {
         var books = await _bookService.GetAllBooksAsync();
@@ -21,6 +23,8 @@ public class BooksController : ControllerBase
     }
 
     [HttpGet("{id}")]
+
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> GetBook(int id)
     {
         var book = await _bookService.GetBookByIdAsync(id);
@@ -43,6 +47,8 @@ public class BooksController : ControllerBase
     }
 
     [HttpPut("{id}")]
+
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> UpdateBook(int id, [FromBody] UpdaateBookDto dto)
     {
         try
@@ -58,6 +64,8 @@ public class BooksController : ControllerBase
     }
 
     [HttpDelete("{id}")]
+
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> DeleteBook(int id)
     {
         try

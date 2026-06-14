@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using TheLibraryApi.Models;
 
 namespace TheLibraryApi.Data
 {
@@ -14,6 +15,10 @@ namespace TheLibraryApi.Data
 
         public DbSet<Member> Members { get; set; }
 
+
+        // jwt 
+
+        public DbSet<AppUser> AppUsers { get; set; }  // ← add this
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

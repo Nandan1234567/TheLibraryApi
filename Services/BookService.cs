@@ -237,7 +237,7 @@ namespace TheLibraryApi.Services
 //Hint: .GroupBy + g.Key + g.Count(). (Interface)
 //- Method: GetLatestBookPerAuthorAsync()
 //What: Return most recent book for each author.
-//Hint: Group by author, then .OrderByDescending(...).FirstOrDefault(). (Interface)
+//Hint: Group by author, then .OrderByDescend i  ing(...).FirstOrDefault(). (Interface)
 //- Method: GetProlificAuthorsAsync(int minBooks)
 //What: Return authors with more than minBooks books.
 //Hint: Group by author, filter groups with .Where(g => g.Count() > minBooks). (Interface)
